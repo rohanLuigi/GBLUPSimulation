@@ -1,0 +1,1321 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effect of increasing phenotypic data on components of IGS-SSBR evaluation &#8212; Simulation of GBLUP</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Contents" href="content.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Simulation of GBLUP</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   GBLUP Simulation
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="content.html">
+   Contents
+  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Effect of increasing phenotypic data on components of IGS-SSBR evaluation
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/sireModelNew.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/sireModelNew.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#theory">
+   Theory
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model">
+     Model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mixed-model-equations">
+     Mixed model equations:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions">
+   Functions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#function-halfsibfamily-get-pedigree-for-halfsib-family">
+     Function halfsibFamily: get pedigree for halfsib family
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#function-extendped-extend-pedigree">
+     Function extendPed: extend pedigree
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#function-simdata-simulate-marker-and-qtl-genotypes">
+     Function simData: simulate marker and QTL genotypes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#function-getmme-get-mme">
+     Function getMME: get MME
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#function-simblup-simulate-phenotypes-and-get-blups">
+     Function simBLUP: simulate phenotypes and get BLUPs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#function-accuracyblup-compupte-correlations-and-regressions-between-predictor-and-predictants">
+     Function accuracyBLUP: compupte correlations and regressions between predictor and predictants
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#use-of-xsim-to-simulate-genotypes">
+   Use of XSim to Simulate Genotypes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setup-of-map-positions-for-markers-and-qtl">
+     Setup of map positions for markers and QTL
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simulation-of-founders">
+     Simulation of Founders
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simulation-of-random-mating-to-generate-ld">
+     Simulation of random mating to generate LD
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simulation-of-genotypes">
+     Simulation of genotypes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simulation-of-blup-evaluations">
+   Simulation of BLUP Evaluations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#weights-for-marker-and-pedigree-components-1-0-0-0">
+     Weights for marker and pedigree components: 1.0, 0.0
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#weights-for-marker-and-pedigree-components-0-95-0-05">
+     Weights for marker and pedigree components: 0.95, 0.05
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#weights-for-marker-and-pedigree-components-0-5-0-5">
+     Weights for marker and pedigree components: 0.5, 0.5
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#weights-for-marker-and-pedigree-components-0-0-1-0">
+     Weights for marker and pedigree components: 0.0, 1.0
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="effect-of-increasing-phenotypic-data-on-components-of-igs-ssbr-evaluation">
+<h1>Effect of increasing phenotypic data on components of IGS-SSBR evaluation<a class="headerlink" href="#effect-of-increasing-phenotypic-data-on-components-of-igs-ssbr-evaluation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="theory">
+<h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">¶</a></h2>
+<p>IGS-SSBR evaluation has a marker and polygenic components. This simulation will examine the accurcacy of these components as the amount of phenotypic data increases.</p>
+<div class="section" id="model">
+<h3>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\mathbf{y} &amp;= \mathbf{1}\mu + \mathbf{Z}\mathbf{M}\boldsymbol{\alpha} + \mathbf{Zu} + \mathbf{e} \\
+           &amp;= \mathbf{1}\mu + \mathbf{Z}\mathbf{g} + \mathbf{Z}\mathbf{u} + \mathbf{e} \\
+           &amp;= \mathbf{1}\mu + \mathbf{Z}(\mathbf{g} + \mathbf{u}) + \mathbf{e} \\
+           &amp;= \mathbf{1}\mu + \mathbf{Z}\mathbf{a} + \mathbf{e},
+\end{align}
+\end{split}\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\text{Var}(\mathbf{a}) &amp;= \mathbf{G}\sigma^2_g + \mathbf{A}\sigma^2_u\\
+                       &amp;= (\mathbf{G}\frac{\sigma^2_g}{\sigma^2_a} + \mathbf{A}\frac{\sigma^2_u}{\sigma^2_a})\sigma^2_a\\
+                       &amp;= \mathbf{H}\sigma^2_a,
+\end{align}
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(\mathbf{G} = \mathbf{M}\mathbf{M}'/(pH)\)</span>, <span class="math notranslate nohighlight">\(p\)</span> is the number of markers, <span class="math notranslate nohighlight">\(H\)</span> is the average heterozygosity, <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is the pedigree-based additive relationship matrix, and <span class="math notranslate nohighlight">\(\sigma^2_a = \sigma^2_g + \sigma^2_u\)</span>.</p>
+</div>
+<div class="section" id="mixed-model-equations">
+<h3>Mixed model equations:<a class="headerlink" href="#mixed-model-equations" title="Permalink to this headline">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+\mathbf{1}'\mathbf{1} &amp; \mathbf{1}'\mathbf{Z}\\
+\mathbf{1}            &amp; \mathbf{Z'}\mathbf{Z} + \mathbf{H}^{-1}\lambda 
+\end{bmatrix}
+\begin{bmatrix}
+\hat{\mu} \\
+\hat{\mathbf{a}}
+\end{bmatrix}
+= 
+\begin{bmatrix}
+\mathbf{1}'\mathbf{y}\\
+Z'\mathbf{y}\\
+\end{bmatrix},
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\lambda = \sigma^2_e/\sigma^2_a\)</span>. BLUP of <span class="math notranslate nohighlight">\(\mathbf{g}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> can be obtained as:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{\mathbf{g}} = \frac{\sigma^2_g}{\sigma^2_a}\mathbf{G}\mathbf{H}^{-1}\hat{\mathbf{a}}
+\]</div>
+<p>and
+$<span class="math notranslate nohighlight">\(
+\hat{\mathbf{u}} = \frac{\sigma^2_u}{\sigma^2_a}\mathbf{A}\mathbf{H}^{-1}\hat{\mathbf{a}}
+\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="n">XSim</span>
+<span class="k">using</span> <span class="n">JWAS</span>
+<span class="k">using</span> <span class="n">DelimitedFiles</span>
+<span class="k">using</span> <span class="n">CSV</span>
+<span class="k">using</span> <span class="n">Statistics</span>
+<span class="k">using</span> <span class="n">LinearAlgebra</span>
+<span class="k">using</span> <span class="n">Plots</span>
+<span class="k">using</span> <span class="n">Distributions</span>
+<span class="k">using</span> <span class="n">Random</span>
+<span class="k">using</span> <span class="n">Printf</span>
+<span class="n">pyplot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Plots.PyPlotBackend()
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="function-halfsibfamily-get-pedigree-for-halfsib-family">
+<h3>Function halfsibFamily: get pedigree for halfsib family<a class="headerlink" href="#function-halfsibfamily-get-pedigree-for-halfsib-family" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">halfsibFamily</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">ind</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">sire</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="n">repeat</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span><span class="n">n</span><span class="p">);</span><span class="n">repeat</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span><span class="n">n</span><span class="p">)]</span>
+    <span class="n">dam</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="n">repeat</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span><span class="n">n</span><span class="p">);</span><span class="mi">2</span><span class="o">:</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ped</span> <span class="o">=</span> <span class="p">[</span><span class="n">ind</span> <span class="n">sire</span> <span class="n">dam</span><span class="p">]</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>halfsibFamily (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="function-extendped-extend-pedigree">
+<h3>Function extendPed: extend pedigree<a class="headerlink" href="#function-extendped-extend-pedigree" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">extendPed</span><span class="p">(</span><span class="n">ped</span><span class="p">,</span><span class="n">ped1</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">ped</span><span class="p">[</span><span class="k">end</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ind</span> <span class="o">=</span> <span class="n">ped1</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">.+</span> <span class="n">n</span>
+    <span class="n">sire</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span><span class="o">==</span><span class="mi">0</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">s</span><span class="o">+</span><span class="n">n</span> <span class="k">for</span> <span class="n">s</span> <span class="kp">in</span> <span class="n">ped1</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span>
+    <span class="n">dam</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="o">==</span><span class="mi">0</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="n">d</span><span class="o">+</span><span class="n">n</span> <span class="k">for</span> <span class="n">d</span> <span class="kp">in</span> <span class="n">ped1</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">3</span><span class="p">]]</span>
+    <span class="n">ped</span> <span class="o">=</span> <span class="p">[</span><span class="n">ped</span><span class="p">;</span>
+           <span class="p">[</span><span class="n">ind</span> <span class="n">sire</span> <span class="n">dam</span><span class="p">]</span>
+        <span class="p">]</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>extendPed (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="function-simdata-simulate-marker-and-qtl-genotypes">
+<h3>Function simData: simulate marker and QTL genotypes<a class="headerlink" href="#function-simdata-simulate-marker-and-qtl-genotypes" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">simData</span><span class="p">(</span><span class="n">nn</span><span class="p">,</span><span class="n">qtl</span><span class="p">,</span><span class="n">mrk</span><span class="p">,</span><span class="n">h2</span><span class="p">,</span><span class="n">founders</span><span class="p">)</span>
+
+    <span class="n">ped</span> <span class="o">=</span> <span class="n">halfsibFamily</span><span class="p">(</span><span class="n">nn</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="n">nn</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="p">]</span>
+        <span class="n">ped1</span> <span class="o">=</span> <span class="n">halfsibFamily</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">ped</span> <span class="o">=</span> <span class="n">extendPed</span><span class="p">(</span><span class="n">ped</span><span class="p">,</span><span class="n">ped1</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="n">writedlm</span><span class="p">(</span><span class="s">&quot;ped.csv&quot;</span><span class="p">,</span><span class="n">ped</span><span class="p">)</span>
+
+    <span class="n">pedigree</span>   <span class="o">=</span> <span class="n">get_pedigree</span><span class="p">(</span><span class="s">&quot;ped.csv&quot;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">false</span><span class="p">,</span><span class="n">separator</span><span class="o">=</span><span class="sc">&#39;\t&#39;</span><span class="p">);</span>
+
+    <span class="n">temp</span> <span class="o">=</span> <span class="kt">Matrix</span><span class="p">(</span><span class="n">JWAS</span><span class="o">.</span><span class="n">PedModule</span><span class="o">.</span><span class="n">AInverse</span><span class="p">(</span><span class="n">pedigree</span><span class="p">));</span>
+    <span class="n">indx</span> <span class="o">=</span> <span class="p">[</span><span class="n">pedigree</span><span class="o">.</span><span class="n">idMap</span><span class="p">[</span><span class="n">string</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span><span class="o">.</span><span class="n">seqID</span> <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">size</span><span class="p">(</span><span class="n">ped</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="n">Ai</span>   <span class="o">=</span> <span class="n">temp</span><span class="p">[</span><span class="n">indx</span><span class="p">,</span><span class="n">indx</span><span class="p">]</span>
+    <span class="n">A</span>    <span class="o">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">Ai</span><span class="p">);</span>
+
+    <span class="n">animals</span> <span class="o">=</span> <span class="n">samplePed</span><span class="p">(</span><span class="n">ped</span><span class="p">,</span><span class="n">founders</span><span class="p">)</span>
+    <span class="n">QM</span> <span class="o">=</span> <span class="n">getOurGenotypes</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>
+
+    <span class="n">M</span> <span class="o">=</span> <span class="n">QM</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="n">mrk</span><span class="p">]</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">QM</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="n">qtl</span><span class="p">]</span>
+    <span class="n">n</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Q</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">ped</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>simData (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="function-getmme-get-mme">
+<h3>Function getMME: get MME<a class="headerlink" href="#function-getmme-get-mme" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">getMME</span><span class="p">(</span><span class="n">nn</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">ped</span><span class="p">,</span><span class="n">h2</span><span class="p">,</span><span class="n">wtMrk</span><span class="p">)</span>
+    
+    <span class="n">n</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+    
+    <span class="n">sires</span> <span class="o">=</span> <span class="n">unique</span><span class="p">(</span><span class="n">ped</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">sires</span> <span class="o">=</span> <span class="n">sires</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="p">]</span>
+    <span class="n">dams</span> <span class="o">=</span> <span class="n">unique</span><span class="p">(</span><span class="n">ped</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+    <span class="n">dams</span> <span class="o">=</span> <span class="n">dams</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="p">]</span>
+    <span class="n">offsp</span>  <span class="o">=</span> <span class="n">setdiff</span><span class="p">(</span><span class="n">ped</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="n">sires</span><span class="p">;</span><span class="n">dams</span><span class="p">])</span>
+    <span class="n">cand</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">;</span> <span class="n">sires</span><span class="p">]</span>                       <span class="c"># candidates</span>
+    <span class="n">offsp</span> <span class="o">=</span> <span class="n">setdiff</span><span class="p">(</span><span class="n">offsp</span><span class="p">,</span><span class="n">cand</span><span class="p">)</span>
+    <span class="n">nOffsp</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">offsp</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">Z</span>   <span class="o">=</span> <span class="kt">Matrix</span><span class="p">{</span><span class="kt">Float64</span><span class="p">}(</span><span class="nb">I</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">)[</span><span class="n">offsp</span><span class="p">,</span><span class="o">:</span><span class="p">]</span>
+    <span class="n">ZPZ</span> <span class="o">=</span> <span class="kt">Diagonal</span><span class="p">(</span><span class="n">Z</span><span class="o">&#39;</span><span class="n">Z</span><span class="p">);</span>
+
+    <span class="n">G</span>   <span class="o">=</span> <span class="n">M</span><span class="o">*</span><span class="n">M</span><span class="o">&#39;</span>
+    <span class="n">Het</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">diag</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
+    <span class="n">G</span>   <span class="o">=</span> <span class="n">G</span><span class="o">/</span><span class="n">Het</span> <span class="o">+</span> <span class="nb">I</span><span class="o">*</span><span class="mf">0.001</span>
+    
+    <span class="n">genVar</span> <span class="o">=</span> <span class="n">mean</span><span class="p">([</span><span class="n">dot</span><span class="p">(</span><span class="n">Q</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="o">:</span><span class="p">],</span><span class="n">Q</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="o">:</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">size</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="mi">1</span><span class="p">)])</span>
+    <span class="n">resVar</span> <span class="o">=</span> <span class="n">genVar</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">h2</span><span class="p">)</span><span class="o">/</span><span class="n">h2</span>
+
+    <span class="n">var_g</span> <span class="o">=</span> <span class="n">genVar</span><span class="o">*</span><span class="n">wtMrk</span>
+    <span class="n">var_u</span> <span class="o">=</span> <span class="n">genVar</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0</span><span class="o">-</span><span class="n">wtMrk</span><span class="p">)</span>
+
+    <span class="n">H</span>  <span class="o">=</span> <span class="p">(</span><span class="n">G</span><span class="o">*</span><span class="n">var_g</span><span class="o">/</span><span class="n">genVar</span> <span class="o">+</span> <span class="n">A</span><span class="o">*</span><span class="n">var_u</span><span class="o">/</span><span class="n">genVar</span><span class="p">)</span>
+    <span class="n">genVarVec</span> <span class="o">=</span> <span class="n">diag</span><span class="p">(</span><span class="n">H</span><span class="p">)</span><span class="o">*</span><span class="n">genVar</span>
+    <span class="n">Hi</span> <span class="o">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+    <span class="n">J</span>  <span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="n">nOffsp</span><span class="p">)</span>
+
+    <span class="n">λ</span>  <span class="o">=</span> <span class="n">resVar</span><span class="o">/</span><span class="n">genVar</span>
+
+    <span class="n">mme</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">J</span><span class="o">&#39;</span><span class="n">J</span> <span class="n">J</span><span class="o">&#39;</span><span class="n">Z</span>
+    <span class="n">Z</span><span class="o">&#39;</span><span class="n">J</span> <span class="n">ZPZ</span><span class="o">+</span><span class="n">Hi</span><span class="o">*</span><span class="n">λ</span>   
+    <span class="p">]</span>
+    <span class="n">Ch</span> <span class="o">=</span> <span class="n">cholesky</span><span class="p">(</span><span class="kt">Symmetric</span><span class="p">(</span><span class="n">mme</span><span class="p">));</span>
+    <span class="n">Pg</span> <span class="o">=</span> <span class="n">var_g</span><span class="o">/</span><span class="n">genVar</span><span class="o">*</span><span class="n">G</span><span class="o">*</span><span class="n">Hi</span>
+    <span class="n">Pu</span> <span class="o">=</span> <span class="n">var_u</span><span class="o">/</span><span class="n">genVar</span><span class="o">*</span><span class="n">A</span><span class="o">*</span><span class="n">Hi</span>
+    <span class="n">mmei</span> <span class="o">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">Ch</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">diag</span><span class="p">(</span><span class="n">mmei</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="p">]</span>
+    <span class="n">pev</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">cand</span><span class="p">]</span><span class="o">*</span><span class="n">resVar</span>
+    <span class="n">coruHatu</span> <span class="o">=</span> <span class="p">(</span><span class="n">genVarVec</span><span class="p">[</span><span class="n">cand</span><span class="p">]</span> <span class="o">-</span> <span class="n">pev</span><span class="p">)</span> <span class="o">./</span><span class="n">genVarVec</span><span class="p">[</span><span class="n">cand</span><span class="p">]</span>
+    <span class="n">coruHatu</span> <span class="o">=</span> <span class="n">map</span><span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">x</span><span class="o">&gt;</span><span class="mf">0.0</span> <span class="o">?</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">:</span> <span class="mf">0.0</span><span class="p">,</span><span class="n">coruHatu</span><span class="p">)</span>
+    <span class="n">println</span><span class="p">(</span><span class="s">&quot;coruHatu&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">size</span><span class="p">(</span><span class="n">nn</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+        <span class="nd">@printf</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%4d</span><span class="s"> </span><span class="si">%5.2f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">nn</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">coruHatu</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">end</span>
+    <span class="k">return</span> <span class="n">Pg</span><span class="p">,</span><span class="n">Pu</span><span class="p">,</span><span class="n">Ch</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span><span class="n">offsp</span><span class="p">,</span><span class="n">cand</span><span class="p">,</span><span class="n">genVar</span><span class="p">,</span><span class="n">resVar</span><span class="p">,</span><span class="n">coruHatu</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>getMME (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="function-simblup-simulate-phenotypes-and-get-blups">
+<h3>Function simBLUP: simulate phenotypes and get BLUPs<a class="headerlink" href="#function-simblup-simulate-phenotypes-and-get-blups" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">simBLUP</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">Pg</span><span class="p">,</span><span class="n">Pu</span><span class="p">,</span><span class="n">Ch</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">offsp</span><span class="p">,</span><span class="n">cand</span><span class="p">,</span><span class="n">resVar</span><span class="p">)</span>
+    <span class="n">α</span> <span class="o">=</span> <span class="n">randn</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">Q</span><span class="o">*</span><span class="n">α</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="n">resVar</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">offsp</span><span class="p">]</span>
+    <span class="n">rhs</span> <span class="o">=</span> <span class="p">[</span><span class="n">J</span><span class="o">&#39;</span><span class="n">y</span><span class="p">;</span> <span class="n">Z</span><span class="o">&#39;</span><span class="n">y</span><span class="p">]</span>
+    <span class="n">sol</span> <span class="o">=</span> <span class="n">Ch</span><span class="o">\</span><span class="n">rhs</span>
+    <span class="n">aHat</span> <span class="o">=</span> <span class="n">sol</span><span class="p">[</span><span class="mi">2</span><span class="o">:</span><span class="k">end</span><span class="p">]</span>    <span class="c"># .+ sol[1]</span>
+    <span class="n">gHat</span> <span class="o">=</span> <span class="n">Pg</span><span class="o">*</span><span class="n">aHat</span>
+    <span class="n">uHat</span> <span class="o">=</span> <span class="n">Pu</span><span class="o">*</span><span class="n">aHat</span>
+    <span class="c">#a    = a    .- mean(a)</span>
+    <span class="c">#aHat = aHat .- mean(aHat)</span>
+    <span class="c">#gHat = gHat .- mean(gHat)</span>
+    <span class="c">#uHat = uHat .- mean(uHat)</span>
+    <span class="p">[</span><span class="n">aHat</span> <span class="n">gHat</span> <span class="n">uHat</span> <span class="n">a</span><span class="p">][</span><span class="n">cand</span><span class="p">,</span><span class="o">:</span><span class="p">]</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>simBLUP (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="function-accuracyblup-compupte-correlations-and-regressions-between-predictor-and-predictants">
+<h3>Function accuracyBLUP: compupte correlations and regressions between predictor and predictants<a class="headerlink" href="#function-accuracyblup-compupte-correlations-and-regressions-between-predictor-and-predictants" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">accuracyBLUP</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>
+    <span class="n">pred</span> <span class="o">=</span> <span class="n">vcat</span><span class="p">([</span><span class="n">i</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="o">:</span><span class="p">]</span><span class="o">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="n">res</span><span class="p">]</span><span class="o">...</span><span class="p">)</span>
+    <span class="n">cor_u_uHat</span> <span class="o">=</span> <span class="n">cor</span><span class="p">(</span><span class="n">pred</span><span class="p">)[</span><span class="mi">1</span><span class="o">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+    <span class="n">covMat</span> <span class="o">=</span> <span class="n">cov</span><span class="p">(</span><span class="n">pred</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">diag</span><span class="p">(</span><span class="n">covMat</span><span class="p">)</span>
+    <span class="n">reg_u_uHat</span> <span class="o">=</span> <span class="n">covMat</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="o">./</span> <span class="n">d</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">3</span><span class="p">]</span>
+    <span class="p">[</span><span class="n">cor_u_uHat</span><span class="p">;</span> <span class="n">reg_u_uHat</span><span class="p">]</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>accuracyBLUP (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">varBLUP</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>
+    <span class="n">pred</span> <span class="o">=</span> <span class="n">vcat</span><span class="p">([</span><span class="n">i</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="o">:</span><span class="p">]</span><span class="o">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="n">res</span><span class="p">]</span><span class="o">...</span><span class="p">)</span>
+    <span class="n">cor_u_uHat</span> <span class="o">=</span> <span class="n">cor</span><span class="p">(</span><span class="n">pred</span><span class="p">)[</span><span class="mi">1</span><span class="o">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+    <span class="n">vars</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span><span class="n">dims</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>varBLUP (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">covBLUP</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="n">j</span><span class="p">)</span>
+    <span class="n">pred</span> <span class="o">=</span> <span class="n">vcat</span><span class="p">([</span><span class="n">i</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="o">:</span><span class="p">]</span><span class="o">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="n">res</span><span class="p">]</span><span class="o">...</span><span class="p">)</span>
+    <span class="n">covs</span> <span class="o">=</span> <span class="n">cov</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span><span class="n">dims</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">[</span><span class="n">covs</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span><span class="o">&#39;./</span><span class="n">covs</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="n">covs</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">]]</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>covBLUP (generic function with 1 method)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="use-of-xsim-to-simulate-genotypes">
+<h2>Use of XSim to Simulate Genotypes<a class="headerlink" href="#use-of-xsim-to-simulate-genotypes" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">chrLength</span> <span class="o">=</span> <span class="mf">30.0</span>
+<span class="n">numChr</span>    <span class="o">=</span> <span class="mi">1</span>
+<span class="n">numLoci</span>   <span class="o">=</span> <span class="mi">6000</span>
+<span class="n">mutRate</span>   <span class="o">=</span> <span class="mf">0.0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="setup-of-map-positions-for-markers-and-qtl">
+<h3>Setup of map positions for markers and QTL<a class="headerlink" href="#setup-of-map-positions-for-markers-and-qtl" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">mapPos</span> <span class="o">=</span> <span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">60_000</span><span class="p">)</span>
+<span class="n">mrkPos</span> <span class="o">=</span> <span class="mi">10</span><span class="o">:</span><span class="mi">20</span><span class="o">:</span><span class="mi">60_000</span>
+
+<span class="n">qtlPos</span> <span class="o">=</span> <span class="n">mrkPos</span> <span class="o">.+</span> <span class="mi">1</span>
+
+<span class="n">mapPos</span><span class="p">[</span><span class="n">mrkPos</span><span class="p">]</span> <span class="o">.=</span> <span class="mi">1</span>
+<span class="n">mapPos</span><span class="p">[</span><span class="n">qtlPos</span><span class="p">]</span> <span class="o">.=</span> <span class="mi">2</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="mf">30.00</span><span class="o">/</span><span class="mi">60_000</span>
+<span class="n">map_pos</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="kp">in</span> <span class="n">enumerate</span><span class="p">(</span><span class="n">mapPos</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">&gt;</span><span class="mi">0</span>
+        <span class="n">push!</span><span class="p">(</span><span class="n">map_pos</span><span class="p">,</span><span class="n">i</span><span class="o">*</span><span class="n">r</span><span class="p">)</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">mrkIndx</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">x</span> <span class="kp">in</span> <span class="n">mapPos</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">&gt;</span><span class="mi">0</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="mi">1</span> 
+            <span class="n">push!</span><span class="p">(</span><span class="n">mrkIndx</span><span class="p">,</span><span class="n">count</span><span class="p">)</span>
+        <span class="k">end</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">qtlIndx</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">x</span> <span class="kp">in</span> <span class="n">mapPos</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">&gt;</span><span class="mi">0</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="mi">2</span> 
+            <span class="n">push!</span><span class="p">(</span><span class="n">qtlIndx</span><span class="p">,</span><span class="n">count</span><span class="p">)</span>
+        <span class="k">end</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="simulation-of-founders">
+<h3>Simulation of Founders<a class="headerlink" href="#simulation-of-founders" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">geneFreq</span> <span class="o">=</span> <span class="n">fill</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="n">numLoci</span><span class="p">)</span>
+<span class="n">build_genome</span><span class="p">(</span><span class="n">numChr</span><span class="p">,</span><span class="n">chrLength</span><span class="p">,</span><span class="n">numLoci</span><span class="p">,</span><span class="n">float</span><span class="o">.</span><span class="p">(</span><span class="n">geneFreq</span><span class="p">),</span><span class="n">float</span><span class="o">.</span><span class="p">(</span><span class="n">map_pos</span><span class="p">),</span><span class="n">mutRate</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>G0 = Any[]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">popSizeFounder</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">sires</span> <span class="o">=</span> <span class="n">sampleFounders</span><span class="p">(</span><span class="n">popSizeFounder</span><span class="p">)</span>
+<span class="n">dams</span>  <span class="o">=</span> <span class="n">sampleFounders</span><span class="p">(</span><span class="n">popSizeFounder</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sampling 100 animals into base population.
+Sampling 100 animals into base population.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="simulation-of-random-mating-to-generate-ld">
+<h3>Simulation of random mating to generate LD<a class="headerlink" href="#simulation-of-random-mating-to-generate-ld" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">popSize</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">nGen</span>    <span class="o">=</span> <span class="mi">100</span>
+<span class="n">sires</span><span class="p">,</span><span class="n">dams</span><span class="p">,</span><span class="n">gen</span> <span class="o">=</span> <span class="n">sampleRan</span><span class="p">(</span><span class="n">popSize</span><span class="p">,</span> <span class="n">nGen</span><span class="p">,</span><span class="n">sires</span><span class="p">,</span><span class="n">dams</span><span class="p">;</span><span class="n">gen</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generation     2: sampling   100 males and   100 females
+Generation     3: sampling   100 males and   100 females
+Generation     4: sampling   100 males and   100 females
+Generation     5: sampling   100 males and   100 females
+Generation     6: sampling   100 males and   100 females
+Generation     7: sampling   100 males and   100 females
+Generation     8: sampling   100 males and   100 females
+Generation     9: sampling   100 males and   100 females
+Generation    10: sampling   100 males and   100 females
+Generation    11: sampling   100 males and   100 females
+Generation    12: sampling   100 males and   100 females
+Generation    13: sampling   100 males and   100 females
+Generation    14: sampling   100 males and   100 females
+Generation    15: sampling   100 males and   100 females
+Generation    16: sampling   100 males and   100 females
+Generation    17: sampling   100 males and   100 females
+Generation    18: sampling   100 males and   100 females
+Generation    19: sampling   100 males and   100 females
+Generation    20: sampling   100 males and   100 females
+Generation    21: sampling   100 males and   100 females
+Generation    22: sampling   100 males and   100 females
+Generation    23: sampling   100 males and   100 females
+Generation    24: sampling   100 males and   100 females
+Generation    25: sampling   100 males and   100 females
+Generation    26: sampling   100 males and   100 females
+Generation    27: sampling   100 males and   100 females
+Generation    28: sampling   100 males and   100 females
+Generation    29: sampling   100 males and   100 females
+Generation    30: sampling   100 males and   100 females
+Generation    31: sampling   100 males and   100 females
+Generation    32: sampling   100 males and   100 females
+Generation    33: sampling   100 males and   100 females
+Generation    34: sampling   100 males and   100 females
+Generation    35: sampling   100 males and   100 females
+Generation    36: sampling   100 males and   100 females
+Generation    37: sampling   100 males and   100 females
+Generation    38: sampling   100 males and   100 females
+Generation    39: sampling   100 males and   100 females
+Generation    40: sampling   100 males and   100 females
+Generation    41: sampling   100 males and   100 females
+Generation    42: sampling   100 males and   100 females
+Generation    43: sampling   100 males and   100 females
+Generation    44: sampling   100 males and   100 females
+Generation    45: sampling   100 males and   100 females
+Generation    46: sampling   100 males and   100 females
+Generation    47: sampling   100 males and   100 females
+Generation    48: sampling   100 males and   100 females
+Generation    49: sampling   100 males and   100 females
+Generation    50: sampling   100 males and   100 females
+Generation    51: sampling   100 males and   100 females
+Generation    52: sampling   100 males and   100 females
+Generation    53: sampling   100 males and   100 females
+Generation    54: sampling   100 males and   100 females
+Generation    55: sampling   100 males and   100 females
+Generation    56: sampling   100 males and   100 females
+Generation    57: sampling   100 males and   100 females
+Generation    58: sampling   100 males and   100 females
+Generation    59: sampling   100 males and   100 females
+Generation    60: sampling   100 males and   100 females
+Generation    61: sampling   100 males and   100 females
+Generation    62: sampling   100 males and   100 females
+Generation    63: sampling   100 males and   100 females
+Generation    64: sampling   100 males and   100 females
+Generation    65: sampling   100 males and   100 females
+Generation    66: sampling   100 males and   100 females
+Generation    67: sampling   100 males and   100 females
+Generation    68: sampling   100 males and   100 females
+Generation    69: sampling   100 males and   100 females
+Generation    70: sampling   100 males and   100 females
+Generation    71: sampling   100 males and   100 females
+Generation    72: sampling   100 males and   100 females
+Generation    73: sampling   100 males and   100 females
+Generation    74: sampling   100 males and   100 females
+Generation    75: sampling   100 males and   100 females
+Generation    76: sampling   100 males and   100 females
+Generation    77: sampling   100 males and   100 females
+Generation    78: sampling   100 males and   100 females
+Generation    79: sampling   100 males and   100 females
+Generation    80: sampling   100 males and   100 females
+Generation    81: sampling   100 males and   100 females
+Generation    82: sampling   100 males and   100 females
+Generation    83: sampling   100 males and   100 females
+Generation    84: sampling   100 males and   100 females
+Generation    85: sampling   100 males and   100 females
+Generation    86: sampling   100 males and   100 females
+Generation    87: sampling   100 males and   100 females
+Generation    88: sampling   100 males and   100 females
+Generation    89: sampling   100 males and   100 females
+Generation    90: sampling   100 males and   100 females
+Generation    91: sampling   100 males and   100 females
+Generation    92: sampling   100 males and   100 females
+Generation    93: sampling   100 males and   100 females
+Generation    94: sampling   100 males and   100 females
+Generation    95: sampling   100 males and   100 females
+Generation    96: sampling   100 males and   100 females
+Generation    97: sampling   100 males and   100 females
+Generation    98: sampling   100 males and   100 females
+Generation    99: sampling   100 males and   100 females
+Generation   100: sampling   100 males and   100 females
+Generation   101: sampling   100 males and   100 females
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">popSize</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">nGen</span>    <span class="o">=</span> <span class="mi">1</span>
+<span class="n">sires</span><span class="p">,</span><span class="n">dams</span><span class="p">,</span><span class="n">gen</span> <span class="o">=</span> <span class="n">sampleRan</span><span class="p">(</span><span class="n">popSize</span><span class="p">,</span> <span class="n">nGen</span><span class="p">,</span><span class="n">sires</span><span class="p">,</span><span class="n">dams</span><span class="p">;</span><span class="n">gen</span><span class="o">=</span><span class="n">gen</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Generation   102: sampling   500 males and   500 females
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">parents</span><span class="o">=</span><span class="n">concatCohorts</span><span class="p">(</span><span class="n">sires</span><span class="p">,</span><span class="n">dams</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="simulation-of-genotypes">
+<h3>Simulation of genotypes<a class="headerlink" href="#simulation-of-genotypes" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">Random</span><span class="o">.</span><span class="n">seed!</span><span class="p">(</span><span class="mi">31415926123</span><span class="p">);</span>
+<span class="n">nn</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">400</span><span class="p">]</span>
+<span class="n">h2</span> <span class="o">=</span> <span class="mf">0.25</span>
+<span class="n">wtMrk</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">Q</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">ped</span> <span class="o">=</span> <span class="n">simData</span><span class="p">(</span><span class="n">nn</span><span class="p">,</span><span class="n">qtlIndx</span><span class="p">,</span><span class="n">mrkIndx</span><span class="p">,</span><span class="n">h2</span><span class="p">,</span><span class="n">parents</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">The delimiter in ped.csv is &#39;	&#39;.</span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">coding pedigree... 100%|████████████████████████████████| Time: 0:00:00</span>
+<span class=" -Color -Color-Green">calculating inbreeding... 100%|█████████████████████████| Time: 0:00:00</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pedigree informatin:
+#individuals: 1585
+#sires:       8
+#dams:        788
+#founders:    797
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">mean</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0077846477392218
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">Qc</span> <span class="o">=</span> <span class="n">Q</span> <span class="o">.-</span> <span class="n">mean</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">dims</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Mc</span> <span class="o">=</span> <span class="n">M</span> <span class="o">.-</span> <span class="n">mean</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">dims</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="simulation-of-blup-evaluations">
+<h2>Simulation of BLUP Evaluations<a class="headerlink" href="#simulation-of-blup-evaluations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="weights-for-marker-and-pedigree-components-1-0-0-0">
+<h3>Weights for marker and pedigree components: 1.0, 0.0<a class="headerlink" href="#weights-for-marker-and-pedigree-components-1-0-0-0" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">wtMrk</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">Pg</span><span class="p">,</span><span class="n">Pu</span><span class="p">,</span><span class="n">Ch</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span><span class="n">offsp</span><span class="p">,</span><span class="n">cand</span><span class="p">,</span><span class="n">genVar</span><span class="p">,</span><span class="n">resVar</span><span class="p">,</span><span class="n">coruHatu</span> <span class="o">=</span>  <span class="n">getMME</span><span class="p">(</span><span class="n">nn</span><span class="p">,</span><span class="n">Qc</span><span class="p">,</span><span class="n">Mc</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">ped</span><span class="p">,</span><span class="n">h2</span><span class="p">,</span><span class="n">wtMrk</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>coruHatu
+   0  0.41
+   1  0.45
+   2  0.51
+  10  0.68
+  25  0.80
+  50  0.86
+ 100  0.90
+ 200  0.92
+ 400  0.92
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">nReps</span> <span class="o">=</span> <span class="mi">10_000</span>
+<span class="n">n</span>   <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="p">[</span><span class="n">simBLUP</span><span class="p">(</span><span class="n">Qc</span><span class="p">,</span><span class="n">Pg</span><span class="p">,</span><span class="n">Pu</span><span class="p">,</span><span class="n">Ch</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">offsp</span><span class="p">,</span><span class="n">cand</span><span class="p">,</span><span class="n">resVar</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">nReps</span><span class="p">]</span>
+<span class="n">resAccuracy</span> <span class="o">=</span> <span class="p">[</span><span class="n">accuracyBLUP</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">size</span><span class="p">(</span><span class="n">cand</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">corrReg</span> <span class="o">=</span> <span class="n">hcat</span><span class="p">(</span><span class="n">resAccuracy</span><span class="o">...</span><span class="p">)</span><span class="o">&#39;</span>
+<span class="p">[</span><span class="n">nn</span> <span class="n">corrReg</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9×7 Array{Float64,2}:
+   0.0  0.320613  0.320613  NaN  0.780689  0.780689  NaN
+   1.0  0.351422  0.351422  NaN  0.796203  0.796203  NaN
+   2.0  0.456769  0.456769  NaN  0.929951  0.929951  NaN
+  10.0  0.664682  0.664682  NaN  1.00675   1.00675   NaN
+  25.0  0.781675  0.781675  NaN  0.984394  0.984394  NaN
+  50.0  0.857616  0.857616  NaN  1.00101   1.00101   NaN
+ 100.0  0.894532  0.894532  NaN  0.997656  0.997656  NaN
+ 200.0  0.914775  0.914775  NaN  1.00142   1.00142   NaN
+ 400.0  0.913499  0.913499  NaN  0.99095   0.99095   NaN
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">nn</span><span class="p">,[</span><span class="n">coruHatu</span> <span class="n">corrReg</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/sireModelNew_45_0.png" src="_images/sireModelNew_45_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">covMat</span> <span class="o">=</span> <span class="p">[</span><span class="n">nn</span> <span class="n">vcat</span><span class="p">([</span><span class="n">covBLUP</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="mi">9</span><span class="p">]</span><span class="o">...</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9×5 Array{Float64,2}:
+   0.0  0.131669  0.131669  0.0  1119.15 
+   1.0  0.155108  0.155108  0.0  1149.02 
+   2.0  0.224353  0.224353  0.0  1223.98 
+  10.0  0.43884   0.43884   0.0  1183.26 
+  25.0  0.620702  0.620702  0.0  1149.47 
+  50.0  0.734761  0.734761  0.0  1159.73 
+ 100.0  0.802067  0.802067  0.0  1162.17 
+ 200.0  0.835627  0.835627  0.0  1101.23 
+ 400.0  0.842101  0.842101  0.0   895.359
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">res100</span> <span class="o">=</span> <span class="p">[</span><span class="n">coruHatu</span><span class="p">,</span> <span class="n">corrReg</span><span class="p">,</span> <span class="n">covMat</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="weights-for-marker-and-pedigree-components-0-95-0-05">
+<h3>Weights for marker and pedigree components: 0.95, 0.05<a class="headerlink" href="#weights-for-marker-and-pedigree-components-0-95-0-05" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">wtMrk</span> <span class="o">=</span> <span class="mf">0.95</span>
+<span class="n">Pg</span><span class="p">,</span><span class="n">Pu</span><span class="p">,</span><span class="n">Ch</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span><span class="n">offsp</span><span class="p">,</span><span class="n">cand</span><span class="p">,</span><span class="n">genVar</span><span class="p">,</span><span class="n">resVar</span><span class="p">,</span><span class="n">coruHatu</span> <span class="o">=</span>  <span class="n">getMME</span><span class="p">(</span><span class="n">nn</span><span class="p">,</span><span class="n">Qc</span><span class="p">,</span><span class="n">Mc</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">ped</span><span class="p">,</span><span class="n">h2</span><span class="p">,</span><span class="n">wtMrk</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>coruHatu
+   0  0.39
+   1  0.44
+   2  0.49
+  10  0.67
+  25  0.79
+  50  0.86
+ 100  0.90
+ 200  0.91
+ 400  0.92
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">nReps</span> <span class="o">=</span> <span class="mi">10_000</span>
+<span class="n">n</span>   <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="p">[</span><span class="n">simBLUP</span><span class="p">(</span><span class="n">Qc</span><span class="p">,</span><span class="n">Pg</span><span class="p">,</span><span class="n">Pu</span><span class="p">,</span><span class="n">Ch</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">offsp</span><span class="p">,</span><span class="n">cand</span><span class="p">,</span><span class="n">resVar</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">nReps</span><span class="p">]</span>
+<span class="n">resAccuracy</span> <span class="o">=</span> <span class="p">[</span><span class="n">accuracyBLUP</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">size</span><span class="p">(</span><span class="n">cand</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">corrReg</span> <span class="o">=</span> <span class="n">hcat</span><span class="p">(</span><span class="n">resAccuracy</span><span class="o">...</span><span class="p">)</span><span class="o">&#39;</span>
+<span class="p">[</span><span class="n">nn</span> <span class="n">corrReg</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9×7 Array{Float64,2}:
+   0.0  0.315623  0.315623  -0.0221897  0.781113  0.781113  -3.23675e14
+   1.0  0.359904  0.359025   0.206266   0.827613  0.837482  16.3714    
+   2.0  0.448452  0.446808   0.324093   0.938927  0.956399  19.2653    
+  10.0  0.661756  0.660177   0.576622   1.01      1.0497    18.0835    
+  25.0  0.790701  0.790065   0.714394   0.999611  1.04488   18.1887    
+  50.0  0.852845  0.852346   0.787675   1.00051   1.04629   19.0191    
+ 100.0  0.895584  0.895131   0.803806   0.995472  1.04132   17.8218    
+ 200.0  0.916191  0.915738   0.844772   1.00743   1.05841   17.4413    
+ 400.0  0.910723  0.910016   0.838198   0.976957  1.02944   15.7771    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">nn</span><span class="p">,[</span><span class="n">coruHatu</span> <span class="n">corrReg</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/sireModelNew_51_0.png" src="_images/sireModelNew_51_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">covMat</span> <span class="o">=</span> <span class="p">[</span><span class="n">nn</span> <span class="n">vcat</span><span class="p">([</span><span class="n">covBLUP</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="mi">9</span><span class="p">]</span><span class="o">...</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9×5 Array{Float64,2}:
+   0.0  0.127534  0.127534  -1.52123e-18  1081.79 
+   1.0  0.156512  0.153913   0.00259877   1123.84 
+   2.0  0.214191  0.208739   0.00545211   1204.08 
+  10.0  0.433585  0.415198   0.0183865    1179.81 
+  25.0  0.625452  0.597393   0.0280591    1173.35 
+  50.0  0.726973  0.694351   0.0326215    1159.23 
+ 100.0  0.805718  0.769465   0.0362536    1127.14 
+ 200.0  0.833215  0.792298   0.0409167    1104.33 
+ 400.0  0.84898   0.804448   0.0445315     867.404
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">res95</span> <span class="o">=</span> <span class="p">[</span><span class="n">coruHatu</span><span class="p">,</span> <span class="n">corrReg</span><span class="p">,</span> <span class="n">covMat</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="weights-for-marker-and-pedigree-components-0-5-0-5">
+<h3>Weights for marker and pedigree components: 0.5, 0.5<a class="headerlink" href="#weights-for-marker-and-pedigree-components-0-5-0-5" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">wtMrk</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">Pg</span><span class="p">,</span><span class="n">Pu</span><span class="p">,</span><span class="n">Ch</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span><span class="n">offsp</span><span class="p">,</span><span class="n">cand</span><span class="p">,</span><span class="n">genVar</span><span class="p">,</span><span class="n">resVar</span><span class="p">,</span><span class="n">coruHatu</span> <span class="o">=</span>  <span class="n">getMME</span><span class="p">(</span><span class="n">nn</span><span class="p">,</span><span class="n">Qc</span><span class="p">,</span><span class="n">Mc</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">ped</span><span class="p">,</span><span class="n">h2</span><span class="p">,</span><span class="n">wtMrk</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>coruHatu
+   0  0.22
+   1  0.32
+   2  0.40
+  10  0.63
+  25  0.76
+  50  0.83
+ 100  0.87
+ 200  0.89
+ 400  0.89
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">nReps</span> <span class="o">=</span> <span class="mi">10_000</span>
+<span class="n">n</span>   <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="p">[</span><span class="n">simBLUP</span><span class="p">(</span><span class="n">Qc</span><span class="p">,</span><span class="n">Pg</span><span class="p">,</span><span class="n">Pu</span><span class="p">,</span><span class="n">Ch</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">offsp</span><span class="p">,</span><span class="n">cand</span><span class="p">,</span><span class="n">resVar</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">nReps</span><span class="p">]</span>
+<span class="n">resAccuracy</span> <span class="o">=</span> <span class="p">[</span><span class="n">accuracyBLUP</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">size</span><span class="p">(</span><span class="n">cand</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">corrReg</span> <span class="o">=</span> <span class="n">hcat</span><span class="p">(</span><span class="n">resAccuracy</span><span class="o">...</span><span class="p">)</span><span class="o">&#39;</span>
+<span class="p">[</span><span class="n">nn</span> <span class="n">corrReg</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9×7 Array{Float64,2}:
+   0.0  0.297245  0.297245  -0.000676473  1.27919   1.27919  -5.77096e12
+   1.0  0.364331  0.368779   0.225209     1.11311   1.48888   1.81743   
+   2.0  0.464943  0.458464   0.358773     1.15979   1.65423   2.16962   
+  10.0  0.661383  0.650213   0.60147      1.0543    1.81007   1.9951    
+  25.0  0.782923  0.769447   0.741424     1.02639   1.82461   2.01557   
+  50.0  0.85402   0.841976   0.825615     1.01686   1.8241    2.07428   
+ 100.0  0.897616  0.883532   0.855103     1.02432   1.80037   2.07144   
+ 200.0  0.909968  0.895754   0.87686      0.991399  1.83523   1.93178   
+ 400.0  0.911446  0.89622    0.880134     0.95393   1.80643   1.81749   
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">nn</span><span class="p">,[</span><span class="n">coruHatu</span> <span class="n">corrReg</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/sireModelNew_57_0.png" src="_images/sireModelNew_57_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">covMat</span> <span class="o">=</span> <span class="p">[</span><span class="n">nn</span> <span class="n">vcat</span><span class="p">([</span><span class="n">covBLUP</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="mi">9</span><span class="p">]</span><span class="o">...</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9×5 Array{Float64,2}:
+   0.0  0.0690705  0.0690705  -7.92964e-20  1131.39 
+   1.0  0.11925    0.0913424   0.0279072    1137.68 
+   2.0  0.186389   0.127061    0.0593275    1210.16 
+  10.0  0.414897   0.23357     0.181328     1160.05 
+  25.0  0.597211   0.324479    0.272732     1172.13 
+  50.0  0.717259   0.388643    0.328616     1159.24 
+ 100.0  0.786583   0.433592    0.352991     1157.55 
+ 200.0  0.835225   0.437207    0.398018     1074.01 
+ 400.0  0.870853   0.444641    0.426212      907.048
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">res50</span> <span class="o">=</span> <span class="p">[</span><span class="n">coruHatu</span><span class="p">,</span> <span class="n">corrReg</span><span class="p">,</span> <span class="n">covMat</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="weights-for-marker-and-pedigree-components-0-0-1-0">
+<h3>Weights for marker and pedigree components: 0.0, 1.0<a class="headerlink" href="#weights-for-marker-and-pedigree-components-0-0-1-0" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">wtMrk</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">Pg</span><span class="p">,</span><span class="n">Pu</span><span class="p">,</span><span class="n">Ch</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span><span class="n">offsp</span><span class="p">,</span><span class="n">cand</span><span class="p">,</span><span class="n">genVar</span><span class="p">,</span><span class="n">resVar</span><span class="p">,</span><span class="n">coruHatu</span> <span class="o">=</span>  <span class="n">getMME</span><span class="p">(</span><span class="n">nn</span><span class="p">,</span><span class="n">Qc</span><span class="p">,</span><span class="n">Mc</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">ped</span><span class="p">,</span><span class="n">h2</span><span class="p">,</span><span class="n">wtMrk</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>coruHatu
+   0  0.00
+   1  0.25
+   2  0.34
+  10  0.61
+  25  0.74
+  50  0.80
+ 100  0.84
+ 200  0.86
+ 400  0.88
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">nReps</span> <span class="o">=</span> <span class="mi">10_000</span>
+<span class="n">n</span>   <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="p">[</span><span class="n">simBLUP</span><span class="p">(</span><span class="n">Qc</span><span class="p">,</span><span class="n">Pg</span><span class="p">,</span><span class="n">Pu</span><span class="p">,</span><span class="n">Ch</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">offsp</span><span class="p">,</span><span class="n">cand</span><span class="p">,</span><span class="n">resVar</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">nReps</span><span class="p">]</span>
+<span class="n">resAccuracy</span> <span class="o">=</span> <span class="p">[</span><span class="n">accuracyBLUP</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">size</span><span class="p">(</span><span class="n">cand</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">corrReg</span> <span class="o">=</span> <span class="n">hcat</span><span class="p">(</span><span class="n">resAccuracy</span><span class="o">...</span><span class="p">)</span><span class="o">&#39;</span>
+<span class="p">[</span><span class="n">nn</span> <span class="n">corrReg</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9×7 Array{Float64,2}:
+   0.0  NaN         NaN  NaN         NaN         NaN  NaN       
+   1.0    0.249701  NaN    0.249701    0.991986  NaN    0.991986
+   2.0    0.370423  NaN    0.370423    1.10663   NaN    1.10663 
+  10.0    0.623434  NaN    0.623434    1.04952   NaN    1.04952 
+  25.0    0.769185  NaN    0.769185    1.05995   NaN    1.05995 
+  50.0    0.845353  NaN    0.845353    1.0413    NaN    1.0413  
+ 100.0    0.887155  NaN    0.887155    1.02686   NaN    1.02686 
+ 200.0    0.903331  NaN    0.903331    0.983922  NaN    0.983922
+ 400.0    0.907534  NaN    0.907534    0.902145  NaN    0.902145
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">nn</span><span class="p">,[</span><span class="n">coruHatu</span> <span class="n">corrReg</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/sireModelNew_63_0.png" src="_images/sireModelNew_63_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">covMat</span> <span class="o">=</span> <span class="p">[</span><span class="n">nn</span> <span class="n">vcat</span><span class="p">([</span><span class="n">covBLUP</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="mi">9</span><span class="p">]</span><span class="o">...</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9×5 Array{Float64,2}:
+   0.0  0.0        0.0  0.0        1117.97 
+   1.0  0.0628542  0.0  0.0628542  1119.27 
+   2.0  0.123992   0.0  0.123992   1188.35 
+  10.0  0.370332   0.0  0.370332   1161.37 
+  25.0  0.558183   0.0  0.558183   1180.55 
+  50.0  0.686281   0.0  0.686281   1162.75 
+ 100.0  0.766457   0.0  0.766457   1152.08 
+ 200.0  0.829341   0.0  0.829341   1104.95 
+ 400.0  0.912956   0.0  0.912956    898.515
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "julia-1.5"
+        },
+        kernelOptions: {
+            kernelName: "julia-1.5",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'julia-1.5'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="content.html" title="previous page">Contents</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Rohan L Fernando<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
